@@ -9,7 +9,8 @@ const LEVELS: LogLine["level"][] = ["ok", "ok", "ok", "warn", "ok", "err"];
 let seq = 0;
 function makeLine(): LogLine {
   const now = new Date();
-  const level = LEVELS[Math.floor(Math.random() * LEVELS.length)];
+  const level: LogLine["level"] =
+    LEVELS[Math.floor(Math.random() * LEVELS.length)] ?? "ok";
   const payload = {
     route: ROUTES[Math.floor(Math.random() * ROUTES.length)],
     bytes: Math.floor(256 + Math.random() * 8192),
