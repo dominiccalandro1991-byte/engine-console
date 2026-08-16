@@ -26,11 +26,13 @@ function makeLine(): LogLine {
 }
 
 export function IngestionCore() {
-  const [lines, setLines] = useState<LogLine[]>(() =>
-    Array.from({ length: 12 }, makeLine),
-  );
+  const [lines, setLines] = useState<LogLine[]>([]);
   const [count, setCount] = useState(1042);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setLines(Array.from({ length: 12 }, makeLine));
+  }, []);
 
   useEffect(() => {
     const i = setInterval(() => {
