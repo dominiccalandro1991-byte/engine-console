@@ -5,21 +5,26 @@ import { HeuristicIndexer } from "@/components/engines/HeuristicIndexer";
 import { PriorArtValidator } from "@/components/engines/PriorArtValidator";
 import { AnomalyDetector } from "@/components/engines/AnomalyDetector";
 import { AegisRouter } from "@/components/engines/AegisRouter";
+import { KinematicLoad } from "@/components/engines/KinematicLoad";
+import { TerrainAnalyzer } from "@/components/engines/TerrainAnalyzer";
+import { TorqueThermal } from "@/components/engines/TorqueThermal";
+import { StructuralValidator } from "@/components/engines/StructuralValidator";
+import { MarketIndexer } from "@/components/engines/MarketIndexer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Research Macro Batch 1 — Diagnostic Console" },
+      { title: "Diagnostic Console — Research & Inventor Macros" },
       {
         name: "description",
         content:
-          "Mission-critical operations console for Engines 1-5: ingestion, indexing, prior-art validation, anomaly detection and AEGIS repair routing.",
+          "Mission-critical operations console for Engines 1-10: research ingestion, indexing, validation, anomaly detection, AEGIS routing, and utility engineering simulation.",
       },
-      { property: "og:title", content: "Research Macro Batch 1 — Diagnostic Console" },
+      { property: "og:title", content: "Diagnostic Console — Research & Inventor Macros" },
       {
         property: "og:description",
         content:
-          "High-density dark telemetry dashboard for the 25-engine diagnostic platform, batch 1 of 5 engines.",
+          "High-density dark telemetry dashboard for the 25-engine diagnostic platform, batches 1 and 2.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -39,6 +44,35 @@ function Clock() {
   return <span className="tabular-nums text-foreground">{t}</span>;
 }
 
+function BatchSection({
+  label,
+  sublabel,
+  children,
+}: {
+  label: string;
+  sublabel: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="space-y-3">
+      <div className="border-y border-border bg-secondary/50 px-3 py-2">
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-2">
+          <div>
+            <h2 className="text-xs font-semibold tracking-widest">{label}</h2>
+            <p className="font-mono text-[10px] text-muted-foreground">{sublabel}</p>
+          </div>
+          <span className="font-mono text-[9px] tracking-widest text-muted-foreground">
+            ACTIVE
+          </span>
+        </div>
+      </div>
+      <div className="mx-auto max-w-[1600px] p-3">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-6">{children}</div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <div className="dark min-h-screen bg-background text-foreground">
@@ -46,10 +80,10 @@ function Index() {
         <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-2 px-3 py-2">
           <div>
             <h1 className="text-sm font-semibold tracking-widest">
-              RESEARCH MACRO · BATCH 1
+              DIAGNOSTIC PLATFORM · MACRO DASHBOARD
             </h1>
             <p className="font-mono text-[10px] text-muted-foreground">
-              engines 01–05 of 25 · diagnostic platform / operations console
+              engines 01–10 of 25 · dual macro view · operations console
             </p>
           </div>
           <div className="flex items-center gap-3 font-mono text-[10px] text-muted-foreground">
@@ -64,8 +98,11 @@ function Index() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-[1600px] p-3">
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-6">
+      <main className="space-y-6">
+        <BatchSection
+          label="RESEARCH MACRO · BATCH 1"
+          sublabel="engines 01–05 · ingestion, indexing, prior-art, anomaly, aegis routing"
+        >
           <div className="lg:col-span-3">
             <IngestionCore />
           </div>
@@ -81,7 +118,28 @@ function Index() {
           <div className="lg:col-span-2">
             <AegisRouter />
           </div>
-        </div>
+        </BatchSection>
+
+        <BatchSection
+          label="INVENTOR MACRO · BATCH 2"
+          sublabel="engines 06–10 · kinematic load, terrain, torque, structural, market index"
+        >
+          <div className="lg:col-span-3">
+            <KinematicLoad />
+          </div>
+          <div className="lg:col-span-3">
+            <TerrainAnalyzer />
+          </div>
+          <div className="lg:col-span-2">
+            <TorqueThermal />
+          </div>
+          <div className="lg:col-span-2">
+            <StructuralValidator />
+          </div>
+          <div className="lg:col-span-2">
+            <MarketIndexer />
+          </div>
+        </BatchSection>
       </main>
 
       <footer className="border-t border-border px-3 py-2 text-center font-mono text-[9px] tracking-widest text-muted-foreground">
