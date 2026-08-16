@@ -6,9 +6,11 @@ const W = 320;
 const H = 96;
 
 export function AnomalyDetector() {
-  const [series, setSeries] = useState<number[]>(() =>
-    Array.from({ length: N }, () => 0.2 + Math.random() * 0.25),
-  );
+  const [series, setSeries] = useState<number[]>([]);
+
+  useEffect(() => {
+    setSeries(Array.from({ length: N }, () => 0.2 + Math.random() * 0.25));
+  }, []);
 
   useEffect(() => {
     const i = setInterval(() => {
