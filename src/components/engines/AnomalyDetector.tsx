@@ -6,9 +6,11 @@ const W = 320;
 const H = 96;
 
 export function AnomalyDetector() {
-  const [series, setSeries] = useState<number[]>(() =>
-    Array.from({ length: N }, () => 0.2 + Math.random() * 0.25),
-  );
+  const [series, setSeries] = useState<number[]>([]);
+
+  useEffect(() => {
+    setSeries(Array.from({ length: N }, () => 0.2 + Math.random() * 0.25));
+  }, []);
 
   useEffect(() => {
     const i = setInterval(() => {
@@ -26,13 +28,13 @@ export function AnomalyDetector() {
   }, []);
 
   const current = series[series.length - 1] ?? 0;
-  const peak = Math.max(...series);
-  const mean = series.reduce((a, b) => a + b, 0) / series.length;
+  const peak = series.length ? Math.max(...series) : 0;
+  const mean = series.length ? series.reduce((a, b) => a + b, 0) / series.length : 0;
   const alarm = current > 0.75;
 
-  const pts = series
-    .map((v, i) => `${(i / (N - 1)) * W},${H - v * H}`)
-    .join(" ");
+  const pts = series.length
+    ? series.map((v, i) => `${(i / (N - 1)) * W},${H - v * H}`).join(" ")
+    : `${0},${H} ${W},${H}`;
 
   return (
     <EngineCard

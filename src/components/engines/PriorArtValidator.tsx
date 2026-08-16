@@ -9,7 +9,11 @@ function randHash() {
 export function PriorArtValidator() {
   const [progress, setProgress] = useState(0);
   const [valid, setValid] = useState(true);
-  const [hash, setHash] = useState(randHash);
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    setHash(randHash());
+  }, []);
 
   useEffect(() => {
     const i = setInterval(() => {

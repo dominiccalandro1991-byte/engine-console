@@ -5,12 +5,13 @@ const BARS = 20;
 const TEMP_MAX = 180;
 
 export function TorqueThermal() {
-  const [kw, setKw] = useState<number[]>(() =>
-    Array.from({ length: BARS }, () => 1 + Math.random() * 2),
-  );
-  const [temp, setTemp] = useState<number[]>(() =>
-    Array.from({ length: BARS }, () => 60 + Math.random() * 40),
-  );
+  const [kw, setKw] = useState<number[]>([]);
+  const [temp, setTemp] = useState<number[]>([]);
+
+  useEffect(() => {
+    setKw(Array.from({ length: BARS }, () => 1 + Math.random() * 2));
+    setTemp(Array.from({ length: BARS }, () => 60 + Math.random() * 40));
+  }, []);
 
   useEffect(() => {
     const i = setInterval(() => {
