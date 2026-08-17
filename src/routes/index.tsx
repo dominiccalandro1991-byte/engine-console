@@ -93,7 +93,7 @@ function Index() {
               DIAGNOSTIC PLATFORM · MACRO DASHBOARD
             </h1>
             <p className="font-mono text-[10px] text-muted-foreground">
-              engines 01–15 of 25 · triple macro view · operations console
+              engines 01–20 of 25 · quad macro view · operations console
             </p>
           </div>
           <div className="flex items-center gap-3 font-mono text-[10px] text-muted-foreground">
@@ -169,6 +169,27 @@ function Index() {
           </div>
           <div className="lg:col-span-2">
             <TestHarness />
+          </div>
+        </BatchSection>
+
+        <BatchSection
+          label="DEPLOY MACRO · BATCH 4"
+          sublabel="engines 16–20 · target node, edge latency, commits, viewport, build compiler"
+        >
+          <div className="lg:col-span-3">
+            <TargetNodeSelector />
+          </div>
+          <div className="lg:col-span-3">
+            <CommitOrchestrator />
+          </div>
+          <div className="lg:col-span-2">
+            <EdgeLatencyMatrix />
+          </div>
+          <div className="lg:col-span-2">
+            <MobileViewportAttestation />
+          </div>
+          <div className="lg:col-span-2">
+            <ProductionBuildCompiler />
           </div>
         </BatchSection>
       </main>
