@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { EngineCard } from "./EngineCard";
 
-const BRANCHES = ["main", "vail-cipher-core", "deploy/edge-prod", "hotfix/auth-rls"];
+const BRANCHES = ["main", "vail-cipher-core", "deploy/edge-prod", "hotfix/auth-rls"] as const;
 const MESSAGES = [
   "feat: add edge latency matrix",
   "chore: bump deps for batch 4",
   "fix: viewport attestation bounds",
   "refactor: extract engine card shell",
   "docs: update deployment runbook",
-];
+] as const;
 
 function randHash() {
   return Array.from({ length: 7 }, () =>
