@@ -15,21 +15,26 @@ import { AstParser } from "@/components/engines/AstParser";
 import { SyntaxLogicValidator } from "@/components/engines/SyntaxLogicValidator";
 import { RefactorEngine } from "@/components/engines/RefactorEngine";
 import { TestHarness } from "@/components/engines/TestHarness";
+import { TargetNodeSelector } from "@/components/engines/TargetNodeSelector";
+import { EdgeLatencyMatrix } from "@/components/engines/EdgeLatencyMatrix";
+import { CommitOrchestrator } from "@/components/engines/CommitOrchestrator";
+import { MobileViewportAttestation } from "@/components/engines/MobileViewportAttestation";
+import { ProductionBuildCompiler } from "@/components/engines/ProductionBuildCompiler";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Diagnostic Console — Research & Inventor Macros" },
+      { title: "Diagnostic Console — Deploy Macro Batch 4" },
       {
         name: "description",
         content:
-          "Mission-critical operations console for Engines 1-10: research ingestion, indexing, validation, anomaly detection, AEGIS routing, and utility engineering simulation.",
+          "Mission-critical operations console for Engines 1-20: research ingestion, indexing, validation, engineering simulation, code generation, and deployment telemetry.",
       },
-      { property: "og:title", content: "Diagnostic Console — Research & Inventor Macros" },
+      { property: "og:title", content: "Diagnostic Console — Deploy Macro Batch 4" },
       {
         property: "og:description",
         content:
-          "High-density dark telemetry dashboard for the 25-engine diagnostic platform, batches 1 and 2.",
+          "High-density dark telemetry dashboard for the 25-engine diagnostic platform, batches 1 through 4.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -88,7 +93,7 @@ function Index() {
               DIAGNOSTIC PLATFORM · MACRO DASHBOARD
             </h1>
             <p className="font-mono text-[10px] text-muted-foreground">
-              engines 01–15 of 25 · triple macro view · operations console
+              engines 01–20 of 25 · quad macro view · operations console
             </p>
           </div>
           <div className="flex items-center gap-3 font-mono text-[10px] text-muted-foreground">
@@ -164,6 +169,27 @@ function Index() {
           </div>
           <div className="lg:col-span-2">
             <TestHarness />
+          </div>
+        </BatchSection>
+
+        <BatchSection
+          label="DEPLOY MACRO · BATCH 4"
+          sublabel="engines 16–20 · target node, edge latency, commits, viewport, build compiler"
+        >
+          <div className="lg:col-span-3">
+            <TargetNodeSelector />
+          </div>
+          <div className="lg:col-span-3">
+            <CommitOrchestrator />
+          </div>
+          <div className="lg:col-span-2">
+            <EdgeLatencyMatrix />
+          </div>
+          <div className="lg:col-span-2">
+            <MobileViewportAttestation />
+          </div>
+          <div className="lg:col-span-2">
+            <ProductionBuildCompiler />
           </div>
         </BatchSection>
       </main>
