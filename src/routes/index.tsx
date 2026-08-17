@@ -88,7 +88,7 @@ function Index() {
               DIAGNOSTIC PLATFORM · MACRO DASHBOARD
             </h1>
             <p className="font-mono text-[10px] text-muted-foreground">
-              engines 01–10 of 25 · dual macro view · operations console
+              engines 01–15 of 25 · triple macro view · operations console
             </p>
           </div>
           <div className="flex items-center gap-3 font-mono text-[10px] text-muted-foreground">
