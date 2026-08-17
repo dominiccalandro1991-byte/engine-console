@@ -10,6 +10,11 @@ import { TerrainAnalyzer } from "@/components/engines/TerrainAnalyzer";
 import { TorqueThermal } from "@/components/engines/TorqueThermal";
 import { StructuralValidator } from "@/components/engines/StructuralValidator";
 import { MarketIndexer } from "@/components/engines/MarketIndexer";
+import { CodeGenOrchestrator } from "@/components/engines/CodeGenOrchestrator";
+import { AstParser } from "@/components/engines/AstParser";
+import { SyntaxLogicValidator } from "@/components/engines/SyntaxLogicValidator";
+import { RefactorEngine } from "@/components/engines/RefactorEngine";
+import { TestHarness } from "@/components/engines/TestHarness";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -83,7 +88,7 @@ function Index() {
               DIAGNOSTIC PLATFORM · MACRO DASHBOARD
             </h1>
             <p className="font-mono text-[10px] text-muted-foreground">
-              engines 01–10 of 25 · dual macro view · operations console
+              engines 01–15 of 25 · triple macro view · operations console
             </p>
           </div>
           <div className="flex items-center gap-3 font-mono text-[10px] text-muted-foreground">
@@ -138,6 +143,27 @@ function Index() {
           </div>
           <div className="lg:col-span-2">
             <MarketIndexer />
+          </div>
+        </BatchSection>
+
+        <BatchSection
+          label="CODER MACRO · BATCH 3"
+          sublabel="engines 11–15 · codegen, AST parse, validation, refactor, test harness"
+        >
+          <div className="lg:col-span-3">
+            <CodeGenOrchestrator />
+          </div>
+          <div className="lg:col-span-3">
+            <AstParser />
+          </div>
+          <div className="lg:col-span-2">
+            <SyntaxLogicValidator />
+          </div>
+          <div className="lg:col-span-2">
+            <RefactorEngine />
+          </div>
+          <div className="lg:col-span-2">
+            <TestHarness />
           </div>
         </BatchSection>
       </main>
