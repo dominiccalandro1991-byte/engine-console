@@ -15,6 +15,11 @@ import { AstParser } from "@/components/engines/AstParser";
 import { SyntaxLogicValidator } from "@/components/engines/SyntaxLogicValidator";
 import { RefactorEngine } from "@/components/engines/RefactorEngine";
 import { TestHarness } from "@/components/engines/TestHarness";
+import { TargetNodeSelector } from "@/components/engines/TargetNodeSelector";
+import { EdgeLatencyMatrix } from "@/components/engines/EdgeLatencyMatrix";
+import { CommitOrchestrator } from "@/components/engines/CommitOrchestrator";
+import { MobileViewportAttestation } from "@/components/engines/MobileViewportAttestation";
+import { ProductionBuildCompiler } from "@/components/engines/ProductionBuildCompiler";
 
 export const Route = createFileRoute("/")({
   head: () => ({
