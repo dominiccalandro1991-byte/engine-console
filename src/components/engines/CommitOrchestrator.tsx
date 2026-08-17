@@ -37,8 +37,8 @@ export function CommitOrchestrator() {
   const sync = () => {
     if (pushing) return;
     setPushing(true);
-    const branch = BRANCHES[Math.floor(Math.random() * BRANCHES.length)];
-    const message = MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+    const branch = BRANCHES[Math.floor(Math.random() * BRANCHES.length)] ?? BRANCHES[0];
+    const message = MESSAGES[Math.floor(Math.random() * MESSAGES.length)] ?? MESSAGES[0];
     const pushLines = [
       `Enumerating objects: ${12 + Math.floor(Math.random() * 40)}`,
       `Counting objects: 100%`,

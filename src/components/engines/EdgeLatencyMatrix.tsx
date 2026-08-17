@@ -56,7 +56,7 @@ export function EdgeLatencyMatrix() {
             <span className="text-right">RTT</span>
           </div>
           {REGIONS.map((r, i) => {
-            const ms = mounted ? latencies[i] : INITIAL[i];
+            const ms = (mounted ? latencies[i] : INITIAL[i]) ?? 40;
             return (
               <div
                 key={r.code}

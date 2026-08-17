@@ -8,7 +8,7 @@ const NODES = [
 ] as const;
 
 export function TargetNodeSelector() {
-  const [sel, setSel] = useState(0);
+  const [sel, setSel] = useState<0 | 1 | 2>(0);
   const node = NODES[sel];
 
   return (
