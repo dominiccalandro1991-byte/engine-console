@@ -24,17 +24,17 @@ import { ProductionBuildCompiler } from "@/components/engines/ProductionBuildCom
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Diagnostic Console — Research & Inventor Macros" },
+      { title: "Diagnostic Console — Deploy Macro Batch 4" },
       {
         name: "description",
         content:
-          "Mission-critical operations console for Engines 1-10: research ingestion, indexing, validation, anomaly detection, AEGIS routing, and utility engineering simulation.",
+          "Mission-critical operations console for Engines 1-20: research ingestion, indexing, validation, engineering simulation, code generation, and deployment telemetry.",
       },
-      { property: "og:title", content: "Diagnostic Console — Research & Inventor Macros" },
+      { property: "og:title", content: "Diagnostic Console — Deploy Macro Batch 4" },
       {
         property: "og:description",
         content:
-          "High-density dark telemetry dashboard for the 25-engine diagnostic platform, batches 1 and 2.",
+          "High-density dark telemetry dashboard for the 25-engine diagnostic platform, batches 1 through 4.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
