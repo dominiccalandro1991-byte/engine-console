@@ -17,20 +17,20 @@ function randHash() {
 }
 
 const INITIAL_LOG = [
-  `${randHash()}  main                feat: scaffold deploy macro batch 4`,
-  `${randHash()}  vail-cipher-core    fix: hydration guards in engine 17`,
-  `${randHash()}  deploy/edge-prod    ci: add production build compiler`,
-  `${randHash()}  hotfix/auth-rls     docs: changelog for release v2.4.0`,
+  `a3f91c2  main                feat: scaffold deploy macro batch 4`,
+  `7d21b08  vail-cipher-core    fix: hydration guards in engine 17`,
+  `c4e0f56  deploy/edge-prod    ci: add production build compiler`,
+  `1b8ad33  hotfix/auth-rls     docs: changelog for release v2.4.0`,
 ];
 
 export function CommitOrchestrator() {
   const [log, setLog] = useState<string[]>(INITIAL_LOG);
   const [pushing, setPushing] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (bottomRef.current) {
-      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    if (boxRef.current) {
+      boxRef.current.scrollTop = boxRef.current.scrollHeight;
     }
   }, [log, pushing]);
 
@@ -70,7 +70,7 @@ export function CommitOrchestrator() {
       status={pushing ? "PUSHING" : "SYNCED"}
     >
       <div className="flex h-full flex-col gap-2">
-        <div className="h-40 min-h-0 flex-1 overflow-auto border border-border bg-background p-2 font-mono text-[10px] leading-[1.6]">
+        <div ref={boxRef} className="h-40 min-h-0 flex-1 overflow-auto border border-border bg-background p-2 font-mono text-[10px] leading-[1.6]">
           <div className="text-muted-foreground">$ git log --oneline --decorate -20</div>
           {log.map((line, i) => (
             <div key={`${i}-${line.slice(0, 7)}`} className="text-foreground/80">
@@ -84,7 +84,6 @@ export function CommitOrchestrator() {
               <span>git push origin HEAD --force-with-lease…</span>
             </div>
           )}
-          <div ref={bottomRef} />
         </div>
 
         <div className="flex items-center justify-between gap-2">
