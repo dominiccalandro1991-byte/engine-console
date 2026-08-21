@@ -12,8 +12,9 @@ const THRESHOLD = 0.15;
 
 export function IncidentDojo() {
   const [q, setQ] = useState("TypeError undefined id");
-  const [ranked, setRanked] = useState(
-    INCIDENTS.map((i) => ({ ...i, d: i.base })).sort((a, b) => a.d - b.d),
+  type Ranked = { id: string; stack: string; patch: string; base: number; d: number };
+  const [ranked, setRanked] = useState<Ranked[]>(
+    INCIDENTS.map((i) => ({ ...i, d: i.base as number })).sort((a, b) => a.d - b.d),
   );
 
   const search = () => {
