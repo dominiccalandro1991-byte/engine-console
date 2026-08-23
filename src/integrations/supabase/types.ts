@@ -14,13 +14,366 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      artifacts: {
+        Row: {
+          created_at: string
+          engine: number
+          id: string
+          meta: Json
+          mime: string | null
+          name: string
+          sha256: string | null
+          size_bytes: number
+          storage_path: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          engine: number
+          id?: string
+          meta?: Json
+          mime?: string | null
+          name: string
+          sha256?: string | null
+          size_bytes?: number
+          storage_path: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          engine?: number
+          id?: string
+          meta?: Json
+          mime?: string | null
+          name?: string
+          sha256?: string | null
+          size_bytes?: number
+          storage_path?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      baselines: {
+        Row: {
+          created_at: string
+          id: string
+          label: string
+          sha256: string
+          size_bytes: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          label: string
+          sha256: string
+          size_bytes?: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          label?: string
+          sha256?: string
+          size_bytes?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      competitors: {
+        Row: {
+          created_at: string
+          id: string
+          is_own: boolean
+          motor_type: string
+          name: string
+          payload_limit_lb: number
+          price_usd: number
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_own?: boolean
+          motor_type?: string
+          name: string
+          payload_limit_lb?: number
+          price_usd?: number
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_own?: boolean
+          motor_type?: string
+          name?: string
+          payload_limit_lb?: number
+          price_usd?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      deploy_targets: {
+        Row: {
+          created_at: string
+          id: string
+          is_active: boolean
+          label: string
+          region: string
+          url: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          label: string
+          region?: string
+          url: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          label?: string
+          region?: string
+          url?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      engine_config: {
+        Row: {
+          config: Json
+          engine: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          config?: Json
+          engine: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          config?: Json
+          engine?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      incidents: {
+        Row: {
+          created_at: string
+          embedding: string | null
+          id: string
+          ref: string
+          remediation: string
+          stack: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          embedding?: string | null
+          id?: string
+          ref: string
+          remediation?: string
+          stack: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          embedding?: string | null
+          id?: string
+          ref?: string
+          remediation?: string
+          stack?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          email: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          email?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      runs: {
+        Row: {
+          created_at: string
+          duration_ms: number
+          engine: number
+          id: string
+          input: Json
+          output: Json
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          duration_ms?: number
+          engine: number
+          id?: string
+          input?: Json
+          output?: Json
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          duration_ms?: number
+          engine?: number
+          id?: string
+          input?: Json
+          output?: Json
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      traces: {
+        Row: {
+          cls: string
+          first_seen: string
+          freq: number
+          hash: string
+          id: string
+          last_seen: string
+          payload: Json
+          signature: string
+          user_id: string
+        }
+        Insert: {
+          cls?: string
+          first_seen?: string
+          freq?: number
+          hash: string
+          id?: string
+          last_seen?: string
+          payload?: Json
+          signature: string
+          user_id: string
+        }
+        Update: {
+          cls?: string
+          first_seen?: string
+          freq?: number
+          hash?: string
+          id?: string
+          last_seen?: string
+          payload?: Json
+          signature?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      upstream_keys: {
+        Row: {
+          capacity: number
+          ciphertext: string
+          created_at: string
+          error_count: number
+          header_name: string
+          header_prefix: string
+          id: string
+          is_active: boolean
+          iv: string
+          label: string
+          last_refill: string
+          refill_per_sec: number
+          tokens: number
+          upstream_url: string
+          user_id: string
+        }
+        Insert: {
+          capacity?: number
+          ciphertext: string
+          created_at?: string
+          error_count?: number
+          header_name?: string
+          header_prefix?: string
+          id?: string
+          is_active?: boolean
+          iv: string
+          label: string
+          last_refill?: string
+          refill_per_sec?: number
+          tokens?: number
+          upstream_url: string
+          user_id: string
+        }
+        Update: {
+          capacity?: number
+          ciphertext?: string
+          created_at?: string
+          error_count?: number
+          header_name?: string
+          header_prefix?: string
+          id?: string
+          is_active?: boolean
+          iv?: string
+          label?: string
+          last_refill?: string
+          refill_per_sec?: number
+          tokens?: number
+          upstream_url?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      webhook_endpoints: {
+        Row: {
+          created_at: string
+          secret: string
+          token: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          secret: string
+          token: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          secret?: string
+          token?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      match_incidents: {
+        Args: { _embedding: string; _limit?: number; _user_id: string }
+        Returns: {
+          distance: number
+          id: string
+          ref: string
+          remediation: string
+          stack: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
