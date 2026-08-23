@@ -365,7 +365,7 @@ export type Database = {
     }
     Functions: {
       match_incidents: {
-        Args: { _embedding: string; _limit?: number; _user_id: string }
+        Args: { _embedding: string; _limit?: number }
         Returns: {
           distance: number
           id: string
